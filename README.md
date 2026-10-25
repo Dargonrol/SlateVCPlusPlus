@@ -1,3 +1,6 @@
+# SlateVC++
+A blazingly fast SlateVC Client
+
 # Setup
 ### Windows
 ```sh
