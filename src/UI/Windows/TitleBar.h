@@ -19,6 +19,49 @@ namespace UI::Window
             floating = false;
         }
 
+
+    private:
+        static void MakeWindowDraggable()
+        {
+            static bool isDraggingWindow = false;
+            static double startingMouseX = 0;
+            static double startingMouseY = 0;
+
+            if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+            {
+                if (!ImGui::IsAnyItemActive() && !ImGui::IsItemHovered())
+                {
+                    isDraggingWindow = true;
+                    GLFWwindow* window = Core::Application::Get().GetWindow();
+                    glfwGetCursorPos(window, &startingMouseX, &startingMouseY);
+                }
+
+            }
+
+            if (isDraggingWindow)
+            {
+                if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
+                {
+                    GLFWwindow* window = Core::Application::Get().GetWindow();
+
+                    double cursorX, cursorY;
+                    glfwGetCursorPos(window, &cursorX, &cursorY);
+
+                    const double deltaMouseX = startingMouseX - cursorX;
+                    const double deltaMouseY = startingMouseY - cursorY;
+
+                    int windowPosX, windowPosY;
+                    glfwGetWindowPos(window, &windowPosX, &windowPosY);
+
+                    glfwSetWindowPos(window,  static_cast<int>(windowPosX - deltaMouseX), static_cast<int>(windowPosY - deltaMouseY));
+                }
+                else
+                {
+                    isDraggingWindow = false;
+                }
+            }
+        }
+
     protected:
         void PreRender(const Model::Theme& theme, const Model::VirtualViewport& viewport) override
         {
@@ -27,6 +70,8 @@ namespace UI::Window
 
         void RenderContent(const Model::Theme& theme, const Model::VirtualViewport& viewport) override
         {
+            MakeWindowDraggable();
+
             ImGui::PushStyleColor(ImGuiCol_Button,          ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
             ImGui::PushStyleColor(ImGuiCol_ButtonHovered,   ImVec4(0.85f, 0.2f, 0.2f, 1.0f));
             ImGui::PushStyleColor(ImGuiCol_ButtonActive,    ImVec4(0.95f, 0.1f, 0.1f, 1.0f));
