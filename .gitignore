@@ -1,14 +1,11 @@
-# Build directories and binary files
 build/
 out/
 out/coverage/*
 cmake-build-*/
 conan-cache/
 
-# User spesific settings
 CMakeUserPresets.json
 
-# IDE files
 .vs/
 .idea/
 .vscode/
@@ -22,7 +19,6 @@ CMakeUserPresets.json
 _ReSharper*
 *.log
 
-# OS Generated Files
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -34,3 +30,5 @@ $RECYCLE.BIN/
 .TemporaryItems
 ehthumbs.db
 Thumbs.db
+
+imgui.ini

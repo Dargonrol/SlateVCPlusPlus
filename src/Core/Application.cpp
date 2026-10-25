@@ -99,8 +99,7 @@ AppErrorCode Application::Init(const int width, const int height, const std::str
     // macOS: Load San Francisco or Helvetica
     const ImFont* font = io.Fonts->AddFontFromFileTTF("/System/Library/Fonts/Helvetica.ttc", 16.0f);
 #else
-    // Linux: Load a common system font path (e.g., DejaVu Sans or Ubuntu)
-    const ImFont* font = io.Fonts->AddFontFromFileTTF("/usr/share/fonts/TTF/DejaVuSans.ttf", 16.0f);
+    const ImFont* font = io.Fonts->AddFontFromFileTTF("resources/fonts/DejaVuSans/DejaVuSans.ttf", 16.0f);
 #endif
 
     if (!font) {

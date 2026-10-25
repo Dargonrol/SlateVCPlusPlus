@@ -26,3 +26,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 
 include(compiler_warnings)
 enable_warnings("${PROJECT_NAME}")
+
+file(COPY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

@@ -35,6 +35,17 @@ cmake --build --preset debug -j 8
 cmake --build --preset debug --target clean
 ```
 
+## Running in NIXOS
+To compile and work with the project in NixOS you just need to run `nix develop`
+in the console and optionally if you want to use your IDE e.g. CLion start it from the same environment:
+```sh
+nix develop
+clion &
+```
+
+### disclaimer
+I don't really use NixOS but wanted to provide a flake anyway. Since I didn't wanted to spend 20 hours on something I don't use I vibecoded the flake.nix (and reviewed it). This is pretty much the only thing that I vibecoded in the entire project.
+
 
 # ideas
 - Background customization:
