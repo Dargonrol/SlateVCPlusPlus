@@ -65,7 +65,7 @@ namespace UI::View
             constexpr ImVec2 maxSize{120.0f, FLT_MAX};
             navBar_.SetCustomConstrains(minSize, maxSize);
             navBar_.autoResizeVertical = true;
-            navBar_.showDebugChildArea = true;
+            //navBar_.showDebugChildArea = true;
             //navBar_.showDebugResizeArea = true;
             navBar_.resizableFlags = Resizable::ResizableRight;
         }
@@ -77,7 +77,7 @@ namespace UI::View
             constexpr ImVec2 maxSize{340.0f, FLT_MAX};
             serverAndStatus_.SetCustomConstrains(minSize, maxSize);
             serverAndStatus_.autoResizeVertical = true;
-            serverAndStatus_.showDebugChildArea = true;
+            //serverAndStatus_.showDebugChildArea = true;
             //serverAndStatus_.showDebugResizeArea = true;
             serverAndStatus_.resizableFlags = Resizable::ResizableRight;
         }
@@ -89,7 +89,7 @@ namespace UI::View
             constexpr ImVec2 maxSize{300.0f, FLT_MAX};
             contextList_.SetCustomConstrains(minSize, maxSize);
             contextList_.autoResizeVertical = true;
-            contextList_.showDebugChildArea = true;
+            //contextList_.showDebugChildArea = true;
             //contextList_.showDebugResizeArea = true;
             contextList_.resizableFlags = Resizable::ResizableLeft;
         }
@@ -100,7 +100,7 @@ namespace UI::View
             constexpr ImVec2 maxSize{FLT_MAX, FLT_MAX};
             chatWindow_.SetCustomConstrains(minSize, maxSize);
             chatWindow_.autoResizeVertical = true;
-            chatWindow_.showDebugChildArea = true;
+            //chatWindow_.showDebugChildArea = true;
             chatWindow_.floating = false;
         }
     }

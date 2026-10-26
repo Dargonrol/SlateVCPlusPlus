@@ -27,11 +27,38 @@ namespace Model
         static constexpr size_t countStyleColor = 6;
     };
 
+    enum class WidgetType
+    {
+        NONE,
+        SLIDER,
+        BUTTON,
+        INPUT_TEXT,
+        TEXT
+    };
+
+    struct WidgetStyle
+    {
+        WidgetType type = WidgetType::NONE;
+
+        ImVec4 background;
+        ImVec4 hovered;
+        ImVec4 element;         // e.g. slider grab
+        ImVec4 active;          // e.g. grabbing the grab / pressing button
+        ImVec4 fontColor;
+
+        float rounding1 = 0.0f; // widget rounding
+        float rounding2 = 0.0f; // e.g. slider grab rounding
+
+        unsigned int fontSize = 10;
+    };
+
     struct Theme
     {
         RenderContext globalContext{};
-        bool customTextInputField = false; // rename to hasCustomTextInputField
+        bool customTextInputField = false;
         RenderContext textInputField;
 
+
+        // map to allow changing style for specific window. WindowName -> windowStyle
     };
 }
