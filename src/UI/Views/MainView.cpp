@@ -112,6 +112,13 @@ namespace UI::View
         if (viewport_->WorkSize.x <= 0 || viewport_->WorkSize.y <= 0)
             return;
 
+        static ImVec2 lastWorkSize = {0.0f, 0.0f};
+        if (viewport_->WorkSize.x != lastWorkSize.x || viewport_->WorkSize.y != lastWorkSize.y)
+        {
+            lastWorkSize = viewport_->WorkSize;
+            OnViewportResize(lastWorkSize, viewport_->WorkSize);
+        }
+
         RecalculateWorkspace();
     }
 

@@ -97,7 +97,7 @@ AppErrorCode Application::Init(const int width, const int height, const std::str
 #elif defined(__APPLE__)
     const ImFont* font = io.Fonts->AddFontFromFileTTF("/System/Library/Fonts/Helvetica.ttc", 16.0f);
 #else
-    const ImFont* font = io.Fonts->AddFontFromFileTTF("/usr/share/fonts/TTF/DejaVuSans.ttf", 13.0f);
+    const ImFont* font = io.Fonts->AddFontFromFileTTF("resources/fonts/DejaVuSans/DejaVuSans.ttf", 16.0f);
 #endif
 
     if (!font)
